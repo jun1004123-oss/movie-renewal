@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="event">
+
+	<select id="nowevent" resultType="com.gaon.cinema.event.EventDTO" parameterType="com.gaon.cinema.event.EventDTO" >
+	  select rownum rn, event_ID, title, contents, poster, img, wdate, E_START, E_END from (
+    	select * from gc_event 
+      	where (E_START <![CDATA[<=]]> to_date(#{today})) and (E_END <![CDATA[ >=]]> to_date(#{today}))
+      	order by e_start desc)
+	</select>
+	
+	<select id="endevent" resultType="com.gaon.cinema.event.EventDTO" parameterType="com.gaon.cinema.event.EventDTO" >
+		select rownum rn, event_ID, title, contents, poster, img, wdate, E_START, E_END from (
+    	select * from gc_event 
+      	where E_end <![CDATA[ <=]]> to_date(#{today})
+      	order by E_end)
+	</select>
+	
+	<select id="eventdetail" resultType="com.gaon.cinema.event.EventDTO" parameterType="com.gaon.cinema.event.EventDTO">
+		select * from gc_event where event_id = #{event_id}
+	
+	</select>
+	
+</mapper>

@@ -1,0 +1,547 @@
+/* 
+
+ºÓÀº »ö : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+¾ÆÀÌº¸¸® : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+Ã»³ì»ö : #017467;
+rgba(1, 116, 103, 0.5);
+
+±Ö»ö : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+°ËÀº»ö : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+*/
+@charset "utf-8";
+
+@font-face {
+  font-family: NanumGothic;
+  font-style: normal;
+  font-weight: 400;
+  src: url('http://image3.megabox.co.kr/mop/font/NanumGothic.eot');
+  src: local('¡Ø'), url('http://image3.megabox.co.kr/mop/font/NanumGothic.eot?#iefix') format('embedded-opentype'), url('http://image3.megabox.co.kr/mop/font/NanumGothic.woff') format('woff'), url('http://image3.megabox.co.kr/mop/font/NanumGothic.ttf') format('truetype');
+}
+@font-face {
+  font-family: NanumGothic;
+  font-style: normal;
+  font-weight: 700;
+  src: url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.eot');
+  src: local('¡Ø'), url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.eot?#iefix') format('embedded-opentype'), url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.woff') format('woff'), url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.ttf') format('truetype');
+}
+
+a, button, div, input, a:hover, button:hover, div:hover, input:hover,
+a:after, button:after, div:after, input:after,
+a:focus, button:focus, div:focus, input:focus
+ {
+	outline: none;
+	text-decoration: none;
+	transition : all 0.3s;
+}
+
+body{
+	-webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#header {
+	background-color: #017467;
+	color : #D6BA8A;
+	position: fixed;
+	width: 100%;
+	margin: 0;
+	z-index: 1000;
+}
+
+#header .backcolor {
+	background-color: #017467;
+	width: 100%;
+	position: absolute;
+	height: 77px;
+	transition : all 0.3s;
+}
+
+#header .header-wrap{
+	background-color: #017467;
+	width: 970px;
+    position: relative;
+    margin: 0 auto;
+	
+}
+
+#header .nav {
+	background-color: #017467;
+	position: absolute;
+	left : 180px;
+	width : 1000px;
+}
+	
+#header .logo {
+	position: absolute;
+	float: left;
+	padding : 0;
+	left : 0px;
+	background-color: rgba(26, 37, 48, 0);
+	text-shadow : 0px 0px 7px #161616;
+	z-index: 1300;
+}
+#header .logo img{
+	width: 150px;
+	transition : all 0.3s;
+}
+	
+#header .nav > li {
+	display : inline-block;
+}
+#header .container {
+	
+}
+
+
+
+#header .nav > li > a {
+	color : #D6BA8A;
+	font-size: 18px;
+    font-weight: bold;
+    padding: 23px 23px;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: #017467;
+    transition : all 0.3s;
+}
+
+#header .nav > li > a:hover {
+	background-color: #005E57;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: #E08F23;
+}
+
+#header .nav > li > a.select {
+	background-color: #005E57;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: #E08F23;
+}
+
+#header .nav > li > a:focus {
+	background-color: #017467;
+	border-bottom: solid;
+    border-top: solid;
+    border-color: #017467;
+	}
+
+#header #loginbt, #header #memberbt {
+	display : inline-block;
+	outline: none;
+	margin-left : 50px;
+	padding: 10px 33px;
+	border: solid;
+	border-color: #E08F23;
+	background-color: transparent;
+	color : #E08F23;
+	font-size: 18px;
+    font-weight: bold;
+    transition : all 0.3s;
+    
+}
+ #header #memberbt {
+    margin-left: 50px;
+    padding: 1px 12px;
+    border: none;
+    top: -4px;
+    position: relative;
+ }
+ 
+#header #loginbt:hover, #header #memberbt:hover {
+	background-color: #E08F23;
+	color : #fff;
+}
+#header #loginlogo {
+	width: 60%;
+    margin: 40px 20% 20px 20%;
+}
+
+#header .login, #header .member, #header .idpwFind_wrap{
+	display: none;
+	background-color : #fff;
+	position: absolute;
+	/*right : -22px;*/
+	right : 9px;
+	top : 64px;
+	width: 430px;
+	height: 280px;
+	 -webkit-box-shadow: 8px 8px 20px #444;
+	 -moz-box-shadow: 8px 8px 20px #444;
+	 box-shadow: 8px 8px 20px #444;
+	 border-radius : 3px;
+}
+
+
+#header .close {
+    font-size: 33px;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    outline: none;
+}
+
+#header #loginID, #header #loginPW {
+	height: 30px;
+    margin-left: 62px;
+    background-color: #e3e3e3;
+    border-style: solid;
+    border-color: #bbb;
+    border-width: 1px;
+    padding-left: 10px;
+    font-size: 16px;
+    color : #555;
+    width: 222px;
+    font-family : san-serif;
+    font-weight : bold;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+#header #loginID:hover, #header #loginPW:hover {
+	border-color: #017467;
+}
+
+#header #loginbtn {
+	width: 75px;
+    height: 70px;
+    position: absolute;
+    top: 97px;
+    right: 61px;
+    background-color: #017467;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+#header #loginbtn:hover {
+	background-color: #015f53;
+}
+
+#header #idpwFind {
+	width: 109px;
+    height: 38px;
+    margin: 11px 4px 0 98px;
+    background-color: transparent;
+    border-color: #E08F23;
+    border-style: solid;
+    color: #E08F23;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+}
+
+#header #joinbt {
+	width: 109px;
+    height: 38px;
+    margin: 11px 10px 0 11px;
+    background-color: transparent;
+    border-color: #E08F23;
+    border-style: solid;
+    color: #E08F23;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+}
+
+#header #idpwFind:hover, #header #joinbt:hover {
+ background-color: #E08F23;
+ color: #fff;
+ 
+ }
+ 
+ /*============= member ===================*/
+ 
+ #header .member{
+	height : 360px;
+	-webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+ #header .member .profile100 {
+	width: 100px;
+ 	height: 100px;
+ 	margin-left: 77px;
+    margin-bottom: -50px; 
+	overflow: hidden;
+	display: inline-block;
+}
+
+ #header .member .profile100 .nowimg {
+    height: 100%;
+    background-size: cover;
+}
+ 
+/*  #header .member .nowimg{
+ 	width: 100px;
+ 	height: 100px;
+ 	margin-left: 77px;
+    margin-bottom: -50px;
+ } */
+ 
+ #header #a_member, #header #m_detail {
+	width: 109px;
+    height: 38px;
+    margin: 11px 4px 0 98px;
+    background-color: transparent;
+    border-color: #017467;;
+    border-style: solid;
+    color: #017467;;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    padding: 11px 24px;
+    transition : all 0.3s;
+}
+
+ #header #a_member:hover, #header #m_detail:hover {
+ 	background-color: #017467;
+	color: #fff;
+	text-decoration: none;
+}
+
+#header #a_rev, #header #m_like {
+	width: 109px;
+    height: 38px;
+    margin: 11px 4px 0 11px;
+    background-color: transparent;
+    border-color: #017467;
+    border-style: solid;
+    color: #017467;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    padding: 11px 24px;
+    transition : all 0.3s;
+}
+
+#header #a_rev:hover, #header #m_like:hover{
+	background-color: #017467;
+	color: #fff;
+	text-decoration: none;
+}
+
+#header #a_movie, #header #m_rev{
+	width: 109px;
+    height: 38px;
+    margin: 11px 4px 0 98px;
+    background-color: transparent;
+    border-color: #C71B1B;
+    border-style: solid;
+    color: #C71B1B;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    padding: 11px 24px;
+    transition : all 0.3s;
+}
+#header #a_movie:hover, #header #m_rev:hover{
+	background-color: #C71B1B;
+	color: #fff;
+	text-decoration: none;
+}
+
+#header #a_logout, #header #m_logout{
+	width: 109px;
+    height: 38px;
+    margin: 11px 10px 0 11px;
+    background-color: transparent;
+    border-color: #E08F23;
+    border-style: solid;
+    color: #E08F23;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    padding: 11px 24px;
+}
+#header #a_logout:hover, #header #m_logout:hover{
+	background-color: #E08F23;
+	color: #fff;
+	text-decoration: none;
+}
+
+#header .member .membercontent {
+	font-size: 19px;
+    text-align: left;
+    position: relative;
+    left: 205px;
+    top: -38px;
+    color: #017467;
+    cursor: default;
+    
+}
+ 
+  /*================================*/
+ 
+ 
+  #small-dialog {
+        background: white;
+        padding: 10px 0px 30px;
+        text-align: center;
+        max-width: 400px;
+        margin: 40px auto;
+        position: relative;
+        font-size: 20px;
+        border-radius : 15px;
+      }
+  #small-dialog #dialogTop{
+	  	border-bottom: 1px;
+	    border-bottom-style: solid;
+	    border-bottom-color: #aaa;
+	    padding-bottom: 8px;
+	    font-size: 23px;
+	    font-weight: bold;
+  }
+  
+  #small-dialog .dialogbtn{
+  	margin-top: 23px;
+    padding: 5px 36px;
+    background-color: #017467;
+    border-style: solid;
+    border-color: #017467;
+    color: #fff;
+    font-size: 19px;
+    font-weight: bold;
+  }
+  
+
+ #header .nav .profile100 .nowimg {
+	width: 44px;
+}
+  
+  #header .nav .img-circle { 
+	width: 44px;
+	height : 44px;
+    margin-right: 10px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#header .idpwFind_wrap{
+	height: 296px;
+	text-align: center;
+}
+
+#header #idSearch, #header #pwSearch{
+	padding: 5px 12px;
+    font-size: 19px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: transparent;
+    line-height: inherit;
+    border-style: solid;
+    border-color: #E08F23;
+    border-width: 3px;
+    margin: 0 3px 17px;
+    color: #E08F23;
+    outline: none;
+    transition : all 0.3s;
+}
+
+#header #idSearch, #header #idSearch:hover, #header #pwSearch:hover {
+	background-color: #E08F23;
+	color: #fff;
+}
+
+#header #idName, #header #idEmail, #header #pwId, #header #pwName, #header #pwEmail{
+	height: 30px;
+    margin-left: 0;
+    background-color: #e3e3e3;
+    border-style: solid;
+    border-color: #bbb;
+    border-width: 1px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #555;
+    width: 222px;
+    font-family: san-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    outline: none;
+    transition : all 0.3s;
+}
+
+#header #idName::-webkit-input-placeholder,
+ #header #idEmail::-webkit-input-placeholder,
+  #header #pwId::-webkit-input-placeholder,
+   #header #pwName::-webkit-input-placeholder,
+#header #pwEmail::-webkit-input-placeholder{
+    color : #888;
+}
+
+#header #idName:hover, #header #idEmail:hover, #header #pwId:hover, #header #pwName:hover, #header #pwEmail:hover{
+	border-color: #017467;
+}
+
+#header #idSerchBtn, #header #pwSerchbtn, #header .closebtn{
+	width: 75px;
+    height: 34px;
+    top: 97px;
+    right: 61px;
+    background-color: #017467;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px 3px;
+    transition : all 0.3s;
+}
+
+#header #idSerchBtn:hover, #header #pwSerchbtn:hover, #header .closebtn:hover {
+	background-color: #015f53;
+}
+
+
+#scroll {
+	cursor : pointer;
+	background-color : rgb(255,255,255,0 ); /*#2C3E50;*/
+	padding: 16px 15px 17px 15px;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	z-index: 1300;
+	opacity: 0;
+	border-radius : 50px;
+	border-color: #017467;
+    border-style: solid;
+    border-width: 3px;
+	width: 55px;
+	height: 55px;
+	color : #017467;
+}
+
+#scroll:hover {
+	opacity : 1;
+	background-color: #017467; 
+	color : #fff;
+	-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bg {
+ 	width: 100%;
+    height: auto;
+    z-index: 0;
+    position: absolute;
+    top: 76px;
+    left: 0px;
+ }

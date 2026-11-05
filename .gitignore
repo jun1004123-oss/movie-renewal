@@ -1,0 +1,29 @@
+# OS / IDE
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.iml
+.vscode/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Backend (Gradle)
+backend/build/
+backend/.gradle/
+backend/out/
+
+# Frontend (Vite)
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+
+# Legacy build output
+legacy/target/
+legacy/.settings/
+
+# Logs
+*.log

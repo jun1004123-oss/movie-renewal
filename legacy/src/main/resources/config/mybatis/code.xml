@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="code">
+<insert id="insert" parameterType="com.gaon.cinema.code.CodeDTO">
+<!-- insert into gc_giftcode VALUES(gc_giftcode_seq.nextval,#{store_id},#{supply},#{code_name},TO_DATE(SYSDATE,'yyyy-mm-dd'),TO_DATE(ADD_MONTHS(SYSDATE,6),'yyyy-mm-dd')) -->
+insert into gc_giftcode VALUES(gc_giftcode_seq.nextval,#{store_id},#{supply},#{code_name},SYSDATE,ADD_MONTHS(SYSDATE,6))
+</insert>
+ <!-- <select id="select" resultType="com.gaon.cinema.code.CodeDTO">
+  select s.title, s.subtitle,g.SUPPLY, s.content, s.img_file, g.code_name, g.startdate, g.enddate
+  from gc_store s inner join gc_giftcode g
+  on s.store_id = g.store_id
+ </select> -->
+ <select id="selectStartDate" resultType="String" parameterType="String">
+  select startdate from gc_giftcode where CODE_NAME=#{code}
+ </select>
+ <select id="selectEndDate" resultType="String" parameterType="String">
+  select enddate from gc_giftcode where CODE_NAME=#{code}
+ </select>
+</mapper>

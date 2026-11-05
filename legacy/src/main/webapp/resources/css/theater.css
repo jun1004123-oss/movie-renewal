@@ -1,0 +1,99 @@
+/* 
+
+ºÓÀº »ö : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+¾ÆÀÌº¸¸® : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+Ã»³ì»ö : #017467;
+rgba(1, 116, 103, 0.5);
+
+±Ö»ö : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+°ËÀº»ö : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+*/
+
+
+#theater {
+	margin: 580px 0 150px;
+    width: 100%;
+    height: auto;
+	text-align: center;
+}
+
+#theater ul {
+	margin: 0;
+	padding: 0;
+	display: inline-flex;
+}
+
+#theater li {
+	line-height: 30px;
+	list-style: none;
+	display: block;
+}
+
+#theater a {
+	padding: 0px 10px;
+	display: block;
+}
+
+#theater .theater_wrap {
+	width: 80%; 
+	height: auto;
+	display: inline-block;
+}
+
+#theater .city_menu {
+	width: 100%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#theater .city_menu a {
+	color: #333333;
+}
+
+#theater .city_menu a:hover {
+	background-color: #333333;
+	color: #DDD;
+}
+
+#theater .location_menu {
+	width: 100%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#theater .location_menu a {
+	color: #333333;
+}
+
+#theater .location_menu a:hover {
+	background-color: #333333;
+	color: #DDD;
+}
+
+#theater .theater_intro_wrap {
+	width: 100%; height: 300px;
+}
+
+#theater .theater_intro_wrap .head {
+	
+}
+
+#theater .theater_intro_wrap .body {
+	width: 100%; height: 300px;
+}
+
+#theater .theater_intro_wrap .body .text {
+	
+}
+
+

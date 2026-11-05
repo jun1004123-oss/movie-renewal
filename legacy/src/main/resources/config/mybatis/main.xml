@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main">
+
+	<select id="nowmovie" resultType="com.gaon.cinema.main.MainDTO" parameterType="String" >
+	   select rownum rn, MOVIE_ID, NAME_K, NAME_E, AGE, AGEtext, D_DAY, DIRECTOR, ACTOR, GENRE, PAGE, ROUND(AVG, 2) AVG,
+    AVG_NUM, CONTENT, POSTER, MOVIE, STEEL1, STEEL2, STEEL3, STEEL4, STEEL5, STEEL6,
+    STEEL7, R_TIME, STARTDATE, ENDDATE from (
+    	select * from gc_movie 
+      	where (STARTDATE <![CDATA[<=]]> to_date(#{today})) and (ENDDATE <![CDATA[ >=]]> to_date(#{today}))
+      	order by AVG desc)
+	</select>
+	
+	<select id="nextmovie" resultType="com.gaon.cinema.main.MainDTO" parameterType="String" >
+		select rownum rn, MOVIE_ID, NAME_K, NAME_E, AGE, AGEtext, D_DAY, DIRECTOR, ACTOR, GENRE, PAGE, ROUND(AVG, 2) AVG,
+    AVG_NUM, CONTENT, POSTER, MOVIE, STEEL1, STEEL2, STEEL3, STEEL4, STEEL5, STEEL6,
+    STEEL7, R_TIME, STARTDATE, ENDDATE, (STARTDATE - to_date(#{today})) as dday from (
+    	select * from gc_movie 
+      	where STARTDATE <![CDATA[ >=]]> to_date(#{today})
+      	order by STARTDATE)
+	</select>
+	
+	<select id="movieDetail" resultType="com.gaon.cinema.main.MainDTO" parameterType="com.gaon.cinema.main.MainDTO" >
+		select rownum rn, MOVIE_ID, NAME_K, NAME_E, AGE, AGEtext, D_DAY, DIRECTOR, ACTOR, GENRE, PAGE, ROUND(AVG, 2) AVG,
+    AVG_NUM, CONTENT, POSTER, MOVIE, STEEL1, STEEL2, STEEL3, STEEL4, STEEL5, STEEL6,
+    STEEL7, R_TIME, STARTDATE, ENDDATE, (STARTDATE - to_date(#{today})) as dday from (
+    	select * from gc_movie 
+      	where STARTDATE <![CDATA[ >=]]> to_date(#{today})
+      	order by STARTDATE)
+	</select>
+	
+	
+	<!-- <select id="detail" parameterType="int" resultType="com.gaon.cinema.qna.QnaDTO">
+	 select * from gc_qna where qna_id = #{qna_id}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from gc_qna where qna_id = #{qna_id}
+	</delete>
+	
+	<update id="edit" parameterType="com.gaon.cinema.qna.QnaDTO">
+		update gc_qna set title = #{title}, contents = #{contents}, wdate = sysdate 
+		where qna_id = #{qna_id}
+	</update>
+	
+	<insert id="add" parameterType="com.gaon.cinema.qna.QnaDTO">
+		insert into gc_qna values(gc_seq.nextval,
+		 #{qna_id}, #{userid}, #{title}, #{contents} #{wdate}, #{count})
+	</insert> -->
+	
+</mapper>

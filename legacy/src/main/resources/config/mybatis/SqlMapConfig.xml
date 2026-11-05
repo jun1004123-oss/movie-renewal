@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<mappers>
+		<mapper resource="config/mybatis/admin.xml"/>
+		<mapper resource="config/mybatis/login.xml"/>
+		<mapper resource="config/mybatis/join.xml"/>
+		<mapper resource="config/mybatis/qna.xml"/>
+		<mapper resource="config/mybatis/qnaReply.xml"/>
+		<mapper resource="config/mybatis/theater.xml"/>
+		<mapper resource="config/mybatis/member.xml"/>
+		<mapper resource="config/mybatis/movie.xml"/>
+		<mapper resource="config/mybatis/event.xml"/>
+		<mapper resource="config/mybatis/store.xml"/>
+		<mapper resource="config/mybatis/code.xml"/>
+		<mapper resource="config/mybatis/main.xml"/>
+		<mapper resource="config/mybatis/reservation.xml"/>
+	</mappers>
+</configuration>

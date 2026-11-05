@@ -1,0 +1,557 @@
+/* 
+
+ºÓÀº »ö : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+
+
+
+¾ÆÀÌº¸¸® : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+Ã»³ì»ö : #017467; -> #005E57
+rgba(1, 116, 103, 0.5);
+
+±Ö»ö : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+°ËÀº»ö : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+letter-spacing: 5px;
+line-height: 1.2;
+
+*/
+@charset "utf-8";
+
+#store {
+    margin: 530px 0 150px;
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+}
+
+#store .store-wrap{
+	b/* ackground-color: #ddd; */
+	width: 1358px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#store li.item {
+    display: block;
+    width: 232px;
+    height: 350px;
+    border: 1px solid #a4a4a4;
+    margin: 12px;
+    float: left;
+    background-color: #fff;
+}
+
+#store li.item .storeimg{
+	width: 100%;
+	height: 230px;
+	cursor: pointer;
+	margin-top: 0px;
+	transition : all 0.3s;
+	cursor: default;
+}
+	
+#store .poster-wrap:hover .poster{
+	-webkit-filter: brightness(50%);
+    filter: brightness(50%);	
+}
+
+#store li.item :hover{
+	
+}
+
+.poster-wrap .rating-container{
+	position: relative;
+    top: -148px;
+    left: 44px;
+    margin-top: -55px;
+    display: none;
+    width: 140px;
+}
+
+.poster-wrap .btn{
+	position: relative;
+    top: -148px;
+    left: 38px;
+    width: 154px;
+    height: 40px;
+    margin-top: -55px;
+    overflow: hidden;
+    display: none;
+}
+
+
+.item .poster_like {
+	display: inline-flex;
+	margin-top: -45px;
+    position: relative;
+    top: -244px;
+    display : none;
+   /*  transition : all 0.4s; */
+}
+
+.nextmoviepage .item .poster_like {
+	margin-top: -60px;
+}
+
+.item .poster_like .likebt{
+	z-index: 2;
+    width: 60px;
+    height: 60px;
+    padding-top: 3px;
+    font-size: 27px;
+    font-weight: 700;
+    color: #fff;
+    border: 2px solid #D6BA8A;
+    background-color: #D6BA8A;
+    box-sizing: border-box;
+    position: relative;
+    top: 155px;
+    left: 85px;
+    border-radius: 60px;
+    transition : all 0.4s;
+}
+
+.item .poster_like .likebt:hover{
+	background-color: #E08F23;
+	border-color: #E08F23;
+}
+
+
+#store #moviesbt {
+	
+}
+
+#store .popcorn, #store .drink, #store .snack, #store .combo, #store .gift{
+	padding: 9px 17px;
+    font-size: 19px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: transparent;
+    line-height: inherit;
+    border-style: solid;
+    border-color: #017467;
+    border-width: 3px;
+    margin: 0 -3px 17px;
+    color : #017467;
+    outline: none;
+}
+
+#store .popcorn:hover, #store .drink:hover, #store .snack:hover, #store .combo:hover, #store .gift:hover {
+	 background-color: #017467;
+	 color : #fff;
+}
+
+#store .selected {
+	background-color: #017467;
+	color : #fff;
+}
+
+/* ================== ¼øÀ§ ==================== */
+
+#store .rank {
+	position: relative;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(1, 116, 103, 0.7);
+    top: -306px;
+    left: 0px;
+    font-size: 27px;
+    padding: 4px 15px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    
+}
+
+#store .rank_empty {
+	position: relative;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    top: -306px;
+    left: 0px;
+    font-size: 27px;
+    padding: 4px 15px;
+}
+
+
+/* ================== ÆòÁ¡ ==================== */
+
+#store .AVG-wrap{
+	position: static;
+    width: 230px;
+    height: 53px;
+    background-color: transparent;
+    border-bottom: 1px;
+    border-style: hidden hidden solid;
+    border-color: #bbb;
+    padding: 16px 0 0 13px;
+    margin-top: -36px;
+}
+
+#store .AVG {
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+#store .nextmoviepage .AVG-wrap{
+    padding: 12px 0 0 13px;
+}
+
+#store .nextmoviepage .AVG {
+	display: inline;
+}
+
+#store .nextmoviepage .dday {
+	background-color: #017467;
+    padding: 7px 25px;
+    border-radius: 10px;
+    font-size: 19px;
+    font-weight: 600;
+    margin-left: 20px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+
+/* ================== ÆòÁ¡(º°) ==================== */
+
+#store .star-empty {
+	background: url(../img/movie/star_empty.png) no-repeat;
+    background-size: cover;
+    width: 131px;
+    height: 20px;
+    float: left;
+    position: relative;
+    left: 72px;
+    top: -22px;
+}
+
+#store .star-wrap {
+    width: 80px; /*¼öÄ¡ º¯È­½Ã ÁÙ¾îµë 13.1*ÆòÁ¡ */
+    height: 20px;
+    display: block;
+    overflow: hidden;
+}
+
+#store .star {
+	background: url(../img/movie/star_fill_orange.png) no-repeat;
+    background-size: 100%;
+    width: 131px;
+    height: 20px;
+    display: block;
+}
+
+/* ================== ¿µÈ­Á¦¸ñ ==================== */
+
+#store li.item .title-wrap {
+	position: static;
+    width: 230px;
+    height: 60px;
+    background-color: transparent;
+    border-style: hidden;
+    padding: 16px 10px 0 13px;
+}
+
+
+#store li.item .AGE{
+	position: relative;
+    top: 1px;
+    left: 4px;
+    width: 25px;
+   }
+ 
+ #store li.item .title {
+ 	font-size: 21px;
+    font-weight: bold;
+    color: #444;
+    position: relative;
+    top: -25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+ }
+ #store li.item .subtitle {
+ 		font-size: 12px;
+    font-weight: bold;
+    color: #444;
+    position: relative;
+    top: -10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 160px;
+ }
+ 
+ #store .detail, #store .rev {
+ 	padding: 9px 16px;
+    font-size: 15px;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 2px;
+    background-color: transparent;
+ }
+ 
+  #store .detail {
+  margin: 3px 6px 9px 13px;
+  color : #E08F23;
+  border-color: #E08F23;
+  }
+  
+  #store .detail:hover {
+  background-color: #E08F23;
+  color : #fff;
+  }
+  
+  #store .rev{
+  margin: 3px 6px;
+  color : #C71B1B;
+  border-color: #C71B1B;
+  }
+  
+  #store .rev:hover{
+  background-color : #C71B1B;
+  color : #fff;
+  }
+  
+  #store .popcornpage {
+  display: block;
+  }
+  
+  #store .drinkpage {
+  display: none;
+  }
+  #store .snackpage {
+  display: none;
+  }
+  #store .combopage {
+  display: none;
+  }
+  #store .giftpage {
+  display: none;
+  }
+  
+  /* ================== ¿µÈ­»ó¼¼Á¤º¸ ==================== */
+  
+  
+ .storeDtail {
+    background: white;
+    padding: 65px 40px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 40px auto;
+    position: relative;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 1000px;
+    height: auto;
+    font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+ }
+  .storeDtail .store_top{
+  	display: table;
+  }
+
+.storeDtail .store_POSTER {
+	float: left;
+}
+  .storeDtail .store_POSTER img{
+	width: 230px;
+	height: 210px;
+}
+
+.storeDtail .store_top_right {
+	float: right;
+    margin: 0px 5px 10px 30px;
+    width: 655px;
+}
+
+.storeDtail .store_AGE {
+	 display: inline;
+	 
+} 
+
+.storeDtail .store_AGE img {
+	 width: 36px;
+	 
+}   
+
+.storeDtail .store_name {
+	border-bottom: solid 1px #ddd;
+    text-align: left;
+}
+
+
+.storeDtail .store_NAME_K {
+	 font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+	 font-weight: 700;
+	 display: inline;
+	 font-size: 30px;
+     padding: 5px;
+     vertical-align: middle;
+}  
+
+.storeDtail .store_NAME_E {
+    font-size: 16px;
+    padding: 5px;
+
+}
+  
+  
+ .storeDtail .store_rev{
+    text-align: left;
+ }
+ 
+ .storeDtail .store_revbt{
+	float: right;
+    background-color: #017467;
+    color: #fff;
+    padding: 10px 26px;
+    margin-top: 10px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.storeDtail .store_revbt:hover {
+	background-color: #005E57;
+}
+ 
+ .storeDtail .popupstar {
+ 	display: inline-block;
+ }
+ 
+  .storeDtail .star-empty {
+	background: url(../img/movie/star_empty.png) no-repeat;
+    background-size: cover;
+    width: 131px;
+    height: 20px;
+    float: left;
+    position: relative; 
+    margin: 11px 8px;
+}
+
+.storeDtail .star-wrap {
+    width: 80px; /*¼öÄ¡ º¯È­½Ã ÁÙ¾îµë 13.1*ÆòÁ¡ */
+    height: 20px;
+    display: block;
+    overflow: hidden;
+}
+
+.storeDtail .star {
+	background: url(../img/movie/star_fill_orange.png) no-repeat;
+    background-size: 100%;
+    width: 131px;
+    height: 20px;
+    display: block;
+}
+  
+ .storeDtail .store_AVG {
+ 	 font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+	 font-weight: 700;
+	 display: inline;
+	 font-size: 30px;
+     padding: 5px;
+     vertical-align: middle;
+ }
+ .storeDtail .storeinfo_wrap {
+ 	margin-top: 11px;
+	font-family: '³ª´®°íµñ', 'NanumGothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333333;
+    text-align: left;
+    padding-left: 8px;
+    border-bottom: solid 1px #ddd;
+    padding-bottom: 15px;
+    line-height: 1.9;
+ }
+ 
+ .storeDtail .storeinfo_wrap li {
+    list-style: none;
+    
+ }
+ 
+ .storeDtail .mfp-close {
+ 	font-size: 40px;
+ }
+ 
+ .storeDtail .rating-xs {
+    font-size: 1.16em;
+    float: left;
+}
+ 
+ .storeDtail .label {
+ 	font-size: 115%;
+ }
+ 
+ .storeDtail .store_AVG_NUM {
+ 	font-size: 14px;
+    display: inline;
+    vertical-align: sub;
+ }
+ 
+ .storeDtail .likebt {
+ 	float: right;
+    border: 2px solid #E08F23;;
+    color: #E08F23;
+    padding: 5px 34px;
+    font-weight: 700;
+    margin-top: -2px;
+    background-color: transparent;
+ }
+ 
+  .storeDtail .likebt:hover {
+  	color: #fff;
+  	background-color: #E08F23;
+  }
+ 
+ .storeDtail .btn{
+    float: left;
+ }
+ 
+ .storeDtail .store_middle {
+ 	display: table;
+    font-size: 15px;
+    text-align: left;
+    margin-top: 54px;
+    line-height: 1.8;
+ }
+ 
+ 
+      /* 
+      
+      
+ .storeDtail 
+      
+  #movie .white-popup #storeDtailTop{
+	  	border-bottom: 1px;
+	    border-bottom-style: solid;
+	    border-bottom-color: #aaa;
+	    padding-bottom: 8px;
+	    font-size: 23px;
+	    font-weight: bold;
+  }
+  
+   #movie .white-popup .storeDtailbtn{
+  	margin-top: 23px;
+    padding: 5px 36px;
+    background-color: #017467;
+    border-style: solid;
+    border-color: #017467;
+    color: #fff;
+    font-size: 19px;
+    font-weight: bold;
+  }
+   */
+  
+  
+  

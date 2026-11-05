@@ -1,0 +1,663 @@
+/* 
+
+ºÓÀº »ö : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+¾ÆÀÌº¸¸® : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+Ã»³ì»ö : #017467; -> #005E57
+rgba(1, 116, 103, 0.5);
+
+±Ö»ö : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+°ËÀº»ö : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+letter-spacing: 5px;
+line-height: 1.2;
+
+*/
+@charset "utf-8";
+
+#event {
+    margin: 300px 0 150px;
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+}
+
+#event .event-wrap{
+	width: 1358px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#event li.list {
+    display: block;
+    width: 232px;
+    height: 433px;
+    border: 1px solid #a4a4a4;
+    margin: 12px;
+    float: left;
+    background-color: #fff;
+}
+
+#event li.list .e_poster{
+	width: 100%;
+	height: 329px;
+	cursor: pointer;
+	margin-top: 0px;
+	transition : all 0.3s;
+}
+	
+#event .poster-wrap:hover .e_poster{
+	-webkit-filter: brightness(50%);
+    filter: brightness(50%);	
+}
+
+#event li.list :hover{
+	
+}
+
+.poster-wrap .rating-container{
+	position: relative;
+    top: -148px;
+    left: 38px;
+    margin-top: -55px;
+    display: none;
+    width: 152px;
+}
+
+.poster-wrap .btn{
+	position: relative;
+    top: -148px;
+    left: 38px;
+    width: 154px;
+    height: 40px;
+    margin-top: -55px;
+    overflow: hidden;
+    display: none;
+}
+
+
+.list .poster_like {
+	display: inline-flex;
+	margin-top: -45px;
+    position: relative;
+    top: -244px;
+    display : none;
+   /*  transition : all 0.4s; */
+}
+
+.nextmoviepage .list .poster_like, .likemoviepage .list .poster_like {
+	margin-top: -60px;
+}
+
+.list .poster_like .likebt{
+	z-index: 2;
+    width: 60px;
+    height: 60px;
+    padding-top: 3px;
+    font-size: 27px;
+    font-weight: 700;
+    color: #fff;
+    border: 2px solid #D6BA8A;
+    background-color: #D6BA8A;
+    box-sizing: border-box;
+    position: relative;
+    top: 155px;
+    left: 85px;
+    border-radius: 60px;
+    transition : all 0.4s;
+}
+
+.list .poster_like .likebt:hover{
+	background-color: #E08F23;
+	border-color: #E08F23;
+}
+
+
+#event #eventsbt {
+	
+}
+
+#event .nowevent, #event .endevent {
+	padding: 9px 17px;
+    font-size: 19px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: transparent;
+    line-height: inherit;
+    border-style: solid;
+    border-color: #017467;
+    border-width: 3px;
+    margin: 0 -3px 17px;
+    color : #017467;
+    outline: none;
+}
+
+#event .nowevent:hover, #event .endevent:hover {
+	 background-color: #017467;
+	 color : #fff;
+}
+
+#event .selected {
+	background-color: #017467;
+	color : #fff;
+}
+
+/* ================== ¼øÀ§ ==================== */
+
+#event .rank {
+	position: relative;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(1, 116, 103, 0.7);
+    top: -306px;
+    left: 0px;
+    font-size: 27px;
+    padding: 4px 15px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    
+}
+
+#event .rank_empty {
+	position: relative;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    top: -306px;
+    left: 0px;
+    font-size: 27px;
+    padding: 4px 15px;
+}
+
+
+/* ================== ÆòÁ¡ ==================== */
+
+#event .AVG-wrap{
+	position: static;
+    width: 230px;
+    height: 53px;
+    background-color: transparent;
+    border-bottom: 1px;
+    border-style: hidden hidden solid;
+    border-color: #bbb;
+    padding: 16px 0 0 13px;
+    margin-top: -36px;
+}
+
+#event .AVG {
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+#event .nextmoviepage .AVG-wrap, #event .likemoviepage .AVG-wrap{
+    padding: 12px 0 0 13px;
+}
+
+#event .nextmoviepage .AVG {
+	display: inline;
+}
+
+#event .nextmoviepage .dday, #event .likemoviepage .dday {
+	background-color: #017467;
+    padding: 7px 25px;
+    border-radius: 10px;
+    font-size: 19px;
+    font-weight: 600;
+    margin-left: 20px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+
+/* ================== ÆòÁ¡(º°) ==================== */
+
+#event .star-empty {
+	background: url(../img/movie/star_empty.png) no-repeat;
+    background-size: cover;
+    width: 131px;
+    height: 20px;
+    float: left;
+    position: relative;
+    left: 72px;
+    top: -22px;
+}
+
+#movie .star-wrap {
+    width: 80px; /*¼öÄ¡ º¯È­½Ã ÁÙ¾îµë 13.1*ÆòÁ¡ */
+    height: 20px;
+    display: block;
+    overflow: hidden;
+}
+
+#movie .star {
+	background: url(../img/movie/star_fill_orange.png) no-repeat;
+    background-size: 100%;
+    width: 131px;
+    height: 20px;
+    display: block;
+}
+
+
+#movie .rating-xs {
+    font-size: 2.15em;
+}
+/* ================== ¿µÈ­Á¦¸ñ ==================== */
+
+#event li.list .title-wrap {
+	position: static;
+    width: 230px;
+    height: 60px;
+    background-color: transparent;
+    border-style: hidden;
+    padding: 16px 10px 0 13px;
+}
+
+
+#event li.list .AGE{
+	position: relative;
+    top: 1px;
+    left: 4px;
+    width: 25px;
+   }
+ 
+ #event li.list .e_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #444;
+    position: relative;
+    top: -9px;
+    left: -5px;
+    white-space: pre-line;
+    width: 214px;
+    height: 72px;
+ }
+ 
+ #event li.list .term{
+ 		top: 7px;
+    left: 10px;
+    position: relative;
+ }
+ 
+ #event .detail, #event .rev {
+ 	padding: 9px 16px;
+    font-size: 15px;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 2px;
+    background-color: transparent;
+ }
+ 
+  #event .detail {
+  margin: 3px 6px 9px 13px;
+  color : #E08F23;
+  border-color: #E08F23;
+  }
+  
+  #event .detail:hover {
+  background-color: #E08F23;
+  color : #fff;
+  }
+  
+  #event .rev{
+  margin: 3px 6px;
+  color : #C71B1B;
+  border-color: #C71B1B;
+  }
+  
+  #event .rev:hover{
+  background-color : #C71B1B;
+  color : #fff;
+  }
+  
+  #event .nowmoviepage, #event .likemoviepage {
+  display: block;
+  }
+  
+  #event .nextmoviepage {
+  display: none;
+  }
+  
+  /* ================== ¿µÈ­»ó¼¼Á¤º¸ ==================== */
+  
+  
+ .eventpopup {
+    background: white;
+    padding: 65px 40px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 40px auto;
+    position: relative;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 1000px;
+    height: auto;
+    font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+ }
+ 
+ .eventpopup {
+    background: white;
+    padding: 65px 40px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 40px auto;
+    position: relative;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 1000px;
+    height: auto;
+    font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+ }
+  .eventpopup .d_top{
+  	display: table;
+  }
+
+.eventpopup .d_POSTER {
+	float: left;
+}
+  .eventpopup .d_POSTER img{
+	width: 230px;
+	height: 329px;
+}
+
+.eventpopup .d_top_right {
+	float: right;
+    margin: 0px 5px 10px 30px;
+    width: 655px;
+}
+
+.eventpopup .d_AGE {
+	 display: inline;
+	 
+} 
+
+.eventpopup .d_AGE img {
+	 width: 36px;
+	 
+}   
+
+.eventpopup .d_title {
+	border-bottom: solid 1px #ddd;
+    text-align: left;
+}
+
+
+.eventpopup .d_NAME_K {
+	 font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+	 font-weight: 700;
+	 display: inline;
+	 font-size: 30px;
+     padding: 5px;
+     vertical-align: middle;
+}  
+
+.eventpopup .d_NAME_E {
+    font-size: 16px;
+    padding: 5px;
+
+}
+  
+  
+ .eventpopup .d_rev{
+    text-align: left;
+ }
+ 
+ .eventpopup .d_revbt{
+	float: right;
+    background-color: #017467;
+    color: #fff;
+    padding: 10px 26px;
+    margin-top: 10px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.eventpopup .d_revbt:hover {
+	background-color: #005E57;
+}
+ 
+ .eventpopup .popupstar {
+ 	display: inline-block;
+ }
+ 
+  .eventpopup .star-empty {
+	background: url(../img/movie/star_empty.png) no-repeat;
+    background-size: cover;
+    width: 131px;
+    height: 20px;
+    float: left;
+    position: relative; 
+    margin: 11px 8px;
+}
+
+.eventpopup .star-wrap {
+    width: 80px; /*¼öÄ¡ º¯È­½Ã ÁÙ¾îµë 13.1*ÆòÁ¡ */
+    height: 20px;
+    display: block;
+    overflow: hidden;
+}
+
+.eventpopup .star {
+	background: url(../img/movie/star_fill_orange.png) no-repeat;
+    background-size: 100%;
+    width: 131px;
+    height: 20px;
+    display: block;
+}
+  
+ .eventpopup .d_AVG {
+ 	 font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+	 font-weight: 700;
+	 display: inline;
+	 font-size: 30px;
+     padding: 5px;
+     vertical-align: middle;
+ }
+ .eventpopup .info_wrap {
+ 	margin-top: 11px;
+	font-family: '³ª´®°íµñ', 'NanumGothic', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333333;
+    text-align: left;
+    padding-left: 8px;
+    border-bottom: solid 1px #ddd;
+    padding-bottom: 15px;
+    line-height: 1.9;
+ }
+ 
+ .eventpopup .info_wrap li {
+    list-style: none;
+    
+ }
+ 
+ .eventpopup .mfp-close {
+ 	font-size: 40px;
+ }
+ 
+ .eventpopup .rating-xs {
+    font-size: 1.16em;
+    float: left;
+}
+ 
+ .eventpopup .label {
+ 	font-size: 115%;
+ }
+ 
+ .eventpopup .d_AVG_NUM {
+ 	font-size: 14px;
+    display: inline;
+    vertical-align: sub;
+ }
+ 
+ .eventpopup .likebt {
+ 	float: right;
+    border: 2px solid #E08F23;;
+    color: #E08F23;
+    padding: 5px 34px;
+    font-weight: 700;
+    margin-top: -2px;
+    background-color: transparent;
+ }
+ 
+  .eventpopup .likebt:hover {
+  	color: #fff;
+  	background-color: #E08F23;
+  }
+ 
+ .eventpopup .btn{
+    float: left;
+ }
+ 
+ .eventpopup .d_middle {
+ 	display: table;
+    font-size: 15px;
+    text-align: left;
+    margin-top: 54px;
+    line-height: 1.8;
+ }
+ 
+ 
+      /* 
+      
+      
+ .detailpopup 
+      
+  #movie .white-popup #detailpopupTop{
+	  	border-bottom: 1px;
+	    border-bottom-style: solid;
+	    border-bottom-color: #aaa;
+	    padding-bottom: 8px;
+	    font-size: 23px;
+	    font-weight: bold;
+  }
+  
+   #movie .white-popup .detailpopupbtn{
+  	margin-top: 23px;
+    padding: 5px 36px;
+    background-color: #017467;
+    border-style: solid;
+    border-color: #017467;
+    color: #fff;
+    font-size: 19px;
+    font-weight: bold;
+  }
+   */
+  
+  
+  
+  
+   
+        /* jssor slider arrow navigator skin 02 css */
+        /*
+        .jssora02l                  (normal)
+        .jssora02r                  (normal)
+        .jssora02l:hover            (normal mouseover)
+        .jssora02r:hover            (normal mouseover)
+        .jssora02l.jssora02ldn      (mousedown)
+        .jssora02r.jssora02rdn      (mousedown)
+        */
+        .jssora02l, .jssora02r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url('../img/a02.png') no-repeat;
+            overflow: hidden;
+            top:200px;
+        }
+        .jssora02l { background-position: -3px -33px; }
+        .jssora02r { background-position: -63px -33px; }
+        .jssora02l:hover { background-position: -123px -33px; }
+        .jssora02r:hover { background-position: -183px -33px; }
+        .jssora02l.jssora02ldn { background-position: -3px -33px; }
+        .jssora02r.jssora02rdn { background-position: -63px -33px; }
+
+        /* jssor slider thumbnail navigator skin 03 css */
+        /*
+        .jssort03 .p            (normal)
+        .jssort03 .p:hover      (normal mouseover)
+        .jssort03 .pav          (active)
+        .jssort03 .pdn          (mousedown)
+        */
+        
+        .jssort03 .p {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 62px;
+            height: 32px;
+        }
+        
+        .jssort03 .t {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .jssort03 .w, .jssort03 .pav:hover .w {
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            border: white 1px dashed;
+            box-sizing: content-box;
+        }
+        
+        .jssort03 .pdn .w, .jssort03 .pav .w {
+            border-style: solid;
+        }
+        
+        .jssort03 .c {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 62px;
+            height: 32px;
+            background-color: #000;
+        
+            filter: alpha(opacity=45);
+            opacity: .45;
+            transition: opacity .6s;
+            -moz-transition: opacity .6s;
+            -webkit-transition: opacity .6s;
+            -o-transition: opacity .6s;
+        }
+        
+        .jssort03 .p:hover .c, .jssort03 .pav .c {
+            filter: alpha(opacity=0);
+            opacity: 0;
+        }
+        
+       
+        .jssort03 .p:hover .c {
+            transition: none;
+            -moz-transition: none;
+            -webkit-transition: none;
+            -o-transition: none;
+        }
+        
+        * html .jssort03 .w {
+            width /**/: 62px;
+            height /**/: 32px;
+        }
+        
+/*  #movie .likemoviepage .rank {
+ 	background: transparent;
+    color: transparent;
+    text-shadow: none;
+ } */
+ 
+  

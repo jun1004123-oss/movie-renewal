@@ -1,0 +1,182 @@
+/* 
+
+ºÓÀº »ö : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+¾ÆÀÌº¸¸® : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+Ã»³ì»ö : #017467; #005E57;
+rgba(1, 116, 103, 0.5);
+
+±Ö»ö : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+°ËÀº»ö : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+*/
+@charset "utf-8";
+
+#joinwrap {
+	text-align: center;
+}
+
+#joinwrap th {
+    font-size: 18px;
+    padding-left: 30px;
+    padding-top: 32px;
+    padding-bottom: 11px;
+}
+
+#joinwrap input[type="text"], #joinwrap input[type="password"] {
+    height: 31px;
+    font-size: 15px;
+    font-family: sans-serif;
+    width: 202px;
+    padding: 1px 8px;
+    margin: 3px 0px;
+    background-color: #ddd;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #bbb;
+}
+
+#joinwrap input[type="radio"] {
+	margin: 0px 10px;
+}
+
+#joinwrap #year {
+	width: 73px;
+}
+
+#joinwrap #month, #joinwrap #day {
+	width: 60px;
+}
+
+#joinwrap #postcode {
+	width: 81px;
+}
+
+#joinwrap #address {
+	width: 400px;
+}
+
+#joinwrap #jointable {
+	margin: 40px auto;
+}
+
+#joinwrap #jointable tr {
+	border-bottom: 1px solid #bbb;
+    height: 41px;
+}
+#joinwrap #jointable tr:first-child/* ,
+#joinwrap #jointable tr:last-child */ {
+	border-bottom: 3px solid #017467;
+}
+#joinwrap #jointable tr td:first-child{
+    text-align: center;
+    background-color: #ddd;
+    width: 184px;
+    font-size: 16px;
+    font-weight: bold;
+}
+	
+#joinwrap #jointable tr td:last-child{
+	background-color: #eee;
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 31px;
+    padding-right: 40px;
+	}
+	
+input::-webkit-input-placeholder {
+    color : transparent;
+}
+
+#joinwrap > input {
+	font-size: 17px;
+    font-weight: bold;
+    padding: 5px 19px;
+    background-color: #017467;
+    color: #fff;
+    border-color: #017467;
+    border-style: solid;
+    margin: -10px 5px 9px;
+}
+
+
+#joinwrap > input:nth-of-type(2) {
+	background-color: transparent;
+	color : #017467;
+}
+
+#joinwrap > input:nth-of-type(1):hover {
+	background-color: #005E57;
+}
+
+#joinwrap > input:nth-of-type(2):hover {
+	background-color: #017467;
+	color : #fff;
+}
+
+#joinwrap input.joinIdcheckBtn, #joinwrap input.zipcodesearch, #joinwrap input.filebt{
+    width: 101px;
+    height: 31px;
+    background-color: #ddd;
+    border-color: #ddd;
+    border-style: solid;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    margin-top: 0;
+}
+
+#joinwrap input.joinIdcheckBtn:hover,
+#joinwrap input.zipcodesearch:hover,
+#joinwrap input.filebt:hover{
+	border-color: #bbb;
+}
+
+
+//css
+#joinwrap .file_input_textbox
+{
+float: left
+}
+ 
+#joinwrap .file_input_div {
+    position: relative;
+    top: 11px;
+    width: 110px;
+    height: 33px;
+    overflow: hidden;
+    display: inline-block;
+}
+ 
+#joinwrap .file_input_button {
+    width: 110px;
+    height: 33px;
+    position: absolute;
+    top: 0px;
+    background-color: #ddd;
+    color: #333;
+    border: 2px solid #ddd;
+}
+ 
+#joinwrap .file_input_div:hover .file_input_button {
+	border-color: #bbb;
+}
+ 
+#joinwrap .file_input_hidden {
+    font-size: 26px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -ms-filter: "alpha(opacity=0)";
+    -khtml-opacity: 0;
+    -moz-opacity: 0;
+}

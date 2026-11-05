@@ -1,0 +1,100 @@
+
+
+/* ºÓÀº »ö : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+¾ÆÀÌº¸¸® : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+Ã»³ì»ö : #017467;
+rgba(1, 116, 103, 0.5);
+
+±Ö»ö : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+°ËÀº»ö : #0B0D0C;
+rgba(11, 13, 12, 0.5); */
+
+#footer {
+	background-color: #0B0D0C;
+	color : #D6BA8A;
+	width: 100%;
+	margin: 0;
+	padding: 0px;
+}
+
+
+#footer .bottom-col {
+padding : 50px 0;
+background-color: #202020;
+}
+
+#footer .bottom-col .pic {
+margin: 30px auto;
+}
+
+#footer .bottom-col .cen {
+text-align: center;
+line-height: 1.5;
+}
+
+#footer .bottom-col .col-md-4 img {
+width: 200px;
+}
+#footer .bottom-col .bottomtitle {
+margin-top : 10px;
+font-size: 23px;
+color : #C71B1B;
+}
+
+#footer .bottom-col .bottomname {
+font-size: 23px;
+color : #fff;
+margin-bottom: 5px;
+letter-spacing: 1px;
+line-height: 1.7;
+}
+
+#footer .bottom-col .comment {
+    font-size: 18px;
+    color: #acacac;
+    font-family: serif;
+    margin-bottom: 0px;
+    line-height: 1.6;
+}
+
+#footer .comment a {
+color: #acacac;
+}
+
+#footer .igray {
+color: #acacac;
+}
+
+#footer .comment a:hover {
+color : #C71B1B;
+text-decoration: none;
+}
+
+#footer .bottom-col .link1,
+#footer .bottom-col .link2,
+#footer .bottom-col .link3
+ {
+color:#017467;
+transition : all 0.6s;
+}
+
+#footer .bottom-col .link1:hover, 
+#footer .bottom-col .link2:hover,
+#footer .bottom-col .link3:hover {
+color:#C71B1B;
+cursor: pointer;
+}
+
+#footer .copy {
+color : #aaa;
+font-size : 15px;
+text-align: center;
+background-color: #111;
+padding: 10px;
+}

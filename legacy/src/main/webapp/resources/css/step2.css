@@ -1,0 +1,364 @@
+/* 
+
+ºÓÀº »ö : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+¾ÆÀÌº¸¸® : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+Ã»³ì»ö : #017467; -> #005E57
+rgba(1, 116, 103, 0.5);
+
+±Ö»ö : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+°ËÀº»ö : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+letter-spacing: 5px;
+line-height: 1.2;
+
+*/
+@charset "utf-8";
+
+.step2 {
+    background: white;
+    padding: 35px 40px 40px;
+    text-align: center;
+    max-width: 1080px;
+    margin: 40px auto;
+    position: relative;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 1000px;
+    height: auto;
+    font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+ }
+ 
+ .step2 .title{
+ 	text-align: left;
+    font-size: 23px;
+    font-weight: bold;
+    color: #222;
+    border-bottom: 1px solid #bbb;
+    line-height: 47px;
+    padding-left: 16px;
+ }
+ 
+ .step2 .step2_left {
+	background-color: #fff;
+    display: inline-block;
+    width: 745px;
+}
+ 
+ .step2 .seatselect {
+ 	font-size: 15px;
+    text-align: left;
+    padding: 6px 18px;
+    border-bottom: 1px solid #bbb;
+ }
+ 
+ .btn-group.bootstrap-select, .btn-group.bootstrap-select:hover {
+ }
+ 
+ .step2 .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 80px;
+}
+
+.step2 .btn-group {
+}
+
+.step2 .btn-group > .btn:first-child {
+    margin-left: 0;
+    height: 28px;
+    padding: 3px 25px 3px 20px;
+}
+
+.step2 .step2_right {
+	background-color: #444;
+    display: inline;
+    width: 175px;
+    height: 480px;
+    float: right;
+    color: #fff;
+    font-size: 15px;
+    text-align: left;
+}
+
+.step2 .step2_right_bottom {
+	width: auto;
+	height: auto;
+	padding: 10px;
+	line-height: 1.5;
+}
+
+.step2 .seat-wrap {
+	background-color: transparent;
+    width: 745px;
+    height: 395px;
+    display: inline-block;
+    border-bottom: 1px solid #bbb;
+    padding: 0px 0px 20px 0px;
+    overflow-x: auto;
+    overflow-y: auto;
+    
+}
+
+.step2 .screen {
+    background-color: #ddd;
+    margin: 12px 60px;
+    width: 600px;
+    height: 23px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.seat-all {
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    line-height: 1.1;
+    vertical-align: middle;
+    display: inline-block;
+    
+}
+
+.step2 .line {
+	box-sizing: border-box;
+    width: 22px;
+    height: 20px;
+    background-color: #fff;
+    border : 1px solid;
+    display: inline-block;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.6;
+    color: #333;
+    margin: 2px;
+    cursor: default;
+    margin-right: 7px;
+    margin-left: -7px;
+}
+.step2 .seat-all span[class^=seat]{
+    box-sizing: border-box;
+    width: 22px;
+    height: 22px;
+    background-color: #555;
+    display: inline-block;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.6;
+    color: #fff;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.seat_hover {
+    background-color: #017467;
+    color: #fff;
+}
+
+/* .step2 .seat-all span[class^=seat]:hover {
+    background-color: #017467;
+    color: #fff;
+} */
+
+.step2 span[class^=seat].select {
+    background-color: #017467;
+}
+
+.step2 span[class^=seat].selected {
+	box-sizing: border-box;
+    width: 22px;
+    height: 22px;
+    background-color: #ddd;
+    display: inline-block;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.6;
+    color: #fff;
+    margin: 2px;
+    cursor: default;
+}
+
+.step2 span[class^=seat].selected:hover {
+    background-color: #ddd;
+    color: #fff;
+}
+
+.seat-setting {
+    background-color: transparent;
+    border-bottom: 1px solid #bbb;
+    line-height: 45px;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+
+.step2_right .s2_poster {
+	width: 175px;	
+	height: 249px;
+	
+}
+
+.step2_right .s2_AGE {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.step2_right .s2_AGE img {
+    width: 27px;
+}
+
+.step2_right .s2_NAME {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    width: 121px;
+    overflow: hidden;
+}
+
+.step2_right .s2_NAME_K, .step2_right .s2_NAME_E  {
+    height: 15px;
+    overflow: hidden;
+}
+
+.s2_loc {
+    margin-top: 3px;
+    height: 22px;
+    text-overflow: ellipsis;
+    width: 156px;
+    overflow: hidden;
+}
+
+.step2_right .s2_date {
+    font-size: 14px;
+}
+
+.s2_selected {
+    height: 53px;
+    width: 160px;
+}
+
+.s2_seat {
+    display: inline-block;
+    border: 1px solid #017467;
+    padding: 0 4px;
+    margin: 2px 3px;
+    font-size: 12px;
+    background-color: #017467;
+    color: #fff;
+    box-sizing: border-box;
+    width: 33px;
+    height: 21px;
+    text-align: center;
+}
+
+.s2_cost {
+    text-align: right;
+    font-size: 16px;
+}
+
+.step2_right .s2_btn {
+    width: 164px;
+}
+
+.step2_right input[type="button"] {
+    color: #888;
+    padding: 4px 19px;
+    margin: 1px 4px;
+    background-color: transparent;
+    border: 2px solid #017467;
+    margin-top: 4px;
+    font-weight: bold;
+	cursor: default;
+}
+.step2_right input[type="button"]:nth-of-type(1) {
+	color: #fff;
+	border-color: #017467;
+	background-color: #017467;
+	cursor: pointer;
+}
+.step2_right input[type="button"]:nth-of-type(2) {
+}
+
+.step2_right input[type="button"]:nth-of-type(1):hover {
+	border-color: #005E57;
+	background-color: #005E57;
+}
+
+.step2_right input.next {
+	color: #fff;
+	border-color: #017467;
+	background-color: #017467;
+	cursor: pointer;
+}
+
+.step2_right input.next:hover {
+	border-color: #005E57;
+	background-color: #005E57;
+	cursor: pointer;
+}
+
+.step2 .radio5{
+	display: none;
+}
+
+.seat-setting {
+    font-size: 16px;
+}
+.seat-setting div {
+	display: inline-block;
+}
+
+.seat-setting input[type=radio]:not(old){
+  width   : 28px;
+  margin  : 0;
+  padding : 0;
+  opacity : 0;
+}
+
+.seat-setting input[type=radio]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -24px;
+  padding-left : 24px;
+  background   : url('checks.png') no-repeat 0 0;
+  line-height  : 22px;
+}
+
+.seat-setting input[type=checkbox]:not(old):checked + label{
+  background-position : 0 -24px;
+}
+
+.seat-setting input[type=radio]:not(old):checked + label{
+  background-position : 0 -48px;
+}
+
+.step2 span.seatchecktext {
+    margin-left: 24px;
+}
+
+label {
+    font-size: 21px;
+    color: #555;
+}
+
+.step2 a.btn.reset {
+    float: right;
+    margin-top: 5px;
+    margin-right: 14px;
+    background-color: #ddd;
+    color : #333;
+}
+
+.step2 a.btn.reset:hover {
+	 background-color: #bbb;
+	 color : #337ab7;
+}

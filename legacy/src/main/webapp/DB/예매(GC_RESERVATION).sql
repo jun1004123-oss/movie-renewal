@@ -1,0 +1,1520 @@
+
+DROP TABLE GC_RESERVATION; 
+DROP SEQUENCE GC_RESERVATION_SEQ;
+
+/* GC_RESERVATION 테이블 (영화 예매) */
+CREATE TABLE GC_RESERVATION (
+  RESERVATION_ID      NUMBER(10)         NOT NULL PRIMARY KEY,  --RESERVATION 고유키
+  THEATER_SCHEDULE_ID NUMBER(10)         NOT NULL,              --THEATER_SCHEDULE 외래키(FK)
+  MOVIE_ID            NUMBER(10)         NOT NULL,
+  CNAME               VARCHAR2(10 CHAR)  NOT NULL,
+  LNAME               VARCHAR2(10 CHAR)  NOT NULL,
+  TNAME               VARCHAR2(10 CHAR)  NOT NULL,
+  TTYPE               VARCHAR2(10 CHAR)  NOT NULL,
+  MSTARTHOUR          DATE               NOT NULL,
+  MENDHOUR            DATE               NOT NULL,
+  NAME_K              VARCHAR2(100 CHAR) NOT NULL,
+  NAME_E              VARCHAR2(100 CHAR) NOT NULL,
+  AGE                 VARCHAR2(20 CHAR)  NOT NULL,
+  POSTER              VARCHAR2(30 CHAR)  NOT NULL,
+  R_TIME              NUMBER(4)          NOT NULL,
+  USERID              VARCHAR2(12 CHAR)  NOT NULL,              --사용자 아이디
+  SEAT                VARCHAR2(50 CHAR)  NOT NULL,              --좌석 위치
+  CHILDREN            NUMBER(1)          NULL,                  --청소년
+  ADULT               NUMBER(1)          NULL,                  --성인
+  PRICE               NUMBER(6)          NOT NULL               --총 가격
+);
+CREATE SEQUENCE GC_RESERVATION_SEQ;
+
+/* GC_RESERVATION 데이터 삽입 */
+
+--서울 강남 지점 1관 09:00 예매
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A1/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A2/A3/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A4/A5/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A7/A8/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A10/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A11/A12/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A13/A14/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A15/A17/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A18/A19/A20/', 3, 0, 21000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B1/B2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B3/B4/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B5/B6/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B7/B8/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B10/B11/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B12/B13/B14/', 0, 3, 27000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B16/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B18/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B19/B20/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C1/C2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C3/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C4/C5/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C6/C7/C8/', 0, 3, 27000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C9/C10/C11/C12/', 4, 0, 28000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C13/C14/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C15/C16/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C17/C18/C19/C20/', 0, 2, 36000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D1/D2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D3/D4/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D5/D6/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D7/D8/D9/', 0, 3, 27000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D10/D11/', 2, 0, 14000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D12/D13/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D14/D15/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D16/D17/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D18/D19/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D20/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E1/E2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E3/E4/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E5/E6/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E7/E8/E9/', 3, 0, 21000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E10/E11/E12/', 1, 2, 25000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E13/E14/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E15/E16/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E17/E18/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E19/E20/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F2/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F3/F4/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F5/F6/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F7/F8/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F9/F10/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F11/F12/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F13/F14/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F15/F16/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F18/F19/F20/', 0, 3, 27000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G1/G2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G5/G6/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G7/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G8/G9/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G10/G11/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G14/G15/G16/', 3, 0, 21000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G17/G18/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G19/G20/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H3/H4/H5/', 0, 3, 27000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H7/H8/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H9/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H11/H12/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H13/H14/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H15/H16/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H17/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H19/H20/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I1/I2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I3/I4/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I6/I7/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I8/I9/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I13/I14/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I15/I6/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I17/I18/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I19/', 0, 1, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J3/J4/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J5/J6/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J7/J8/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J10/J11/J12/', 3, 0, 21000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J16/J17/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J19/J20/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K1/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K3/K4/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K6/K7/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K8/K9/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K10/K11/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K12/K13/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K14/K15/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K16/K17/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K19/K20/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L1/L2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L3/L4/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L8/L9/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L11/L12/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L13/L14/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L15/L16/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L17/L18/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L19/L20/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M1/M2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M5/M6/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M7/M8/', 2, 0, 14000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M9/M10/', 2, 0, 14000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M11/M12/', 0, 2, 18000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M13/M14/', 0, 2, 18000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M15/M16/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M18/M19/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N1/N2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N4/N5/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N6/N7/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N8/N9/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N10/N11/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N12/N13/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N14/N15/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N16/N17/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O4/O5/O6', 2, 1, 23000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O7/O8', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O9/O10/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O14/O15/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O17/O18/O19/', 1, 2, 25000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P3/P4/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P5/P6/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P7/P8/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P9/P10/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P11/P12/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P13/P14/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P16/P17/', 0, 2, 18000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P19/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q2/Q3/Q4/', 2, 1, 23000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q6/Q7/Q8/', 2, 1, 23000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q9/Q10/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q11/Q12/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q13/Q14/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q3/Q4/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q15/Q16/Q17/', 2, 1, 23000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q19/Q20/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R1/R2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R3/R4/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R5/R6/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R8/R9/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R10/R11/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R12/R13/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R14/R15/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R19/R20/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S2/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S5/S6/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S7/S8/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S9/S10/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S11/S12/S13/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S15/S16/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S7/S18/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S19/S20/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T1/T2/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T3/T4/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T5/T6/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T7/T8/T9/', 1, 2, 25000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T10/T11/T12/', 2, 1, 23000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T13/T14/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T15/T16/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T17/T18/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T19/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 1, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 11:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T20/', 1, 0, 7000);
+
+
+
+--서울 강남 지점 1관 12:00예매
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A1/A2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A5/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A8/A9/A10/', 0, 3, 27000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A13/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A15/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A18/A19/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'A20/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B1/B2/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B3/B4/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B7/B8/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B14/B15/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B16/B17/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'B20/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C1/C2/', 2, 0, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C3/C4/C5/', 2, 1, 23000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C7/C8/C9/', 3, 0, 21000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C10/C11/', 2, 0, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'C16/C17/C18/', 2, 1, 23000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D2/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D4/D5/', 2, 0, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D8/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D10/D11/D12/', 0, 3, 27000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D15/D16/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'D19/D20/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E2/E3/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E2/E3/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E2/E3/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E4/E5/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E8/E9/E10/', 3, 0, 21000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E12/E13/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E16/E17/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E19/', 1, 0, 7000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F1/F2/F3/', 1, 2, 25000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E5/E6/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'E8/E9/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F3/F4/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F6/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F8/F9/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F12/F13/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F14/F15/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F16/F17/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'F18/F19/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G1/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G3/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G5/G6/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G9/G10/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G11/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G12/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G14/15/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'G19/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H1/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H1/', 1, 0, 7000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H2/H3/H4/', 3, 0, 21000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H5/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H9/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H13/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H15/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H16/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H17/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'H19/H20/', 1, 1, 16000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I1/I2/', 0, 2, 18000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I4/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I6/I7/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I9/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I12/I13/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I15/I16/I17/', 1, 2, 25000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'I19/I20/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J4/J5/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J6/J7/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J9/J10/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J12/J13/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'J17/J18/J19/', 2, 1, 23000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K6/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K9/K10/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K15/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'K19/K20/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L3/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L5/L6/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L10/', 1, 0, 7000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L11/L12/L13/', 3, 0, 21000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L14/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L15/16/', 1, 1, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'L20/', 1, 0, 7000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M1/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M3/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M5/M6/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M9/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M11/M12/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M17/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'M20/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N1/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N2/N3/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N5/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N8/N9/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N11/N12/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'N18/N19/N20/', 0, 3, 27000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O1/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O3/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O5/O6/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O8/O9/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O15/O16/O17/', 0, 3, 27000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'O20/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P4/P6/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P9/P10/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P13/P14/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'P19/P20/', 2, 0, 14000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q7/Q8/', 2, 0, 14000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q10/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q11/Q12/Q13/', 0, 3, 27000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'Q18/Q19/Q20/', 0, 3, 27000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R7/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R11/R12/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R17/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'R20/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S7/S8/S9/', 0, 3, 27000);
+
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S10/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S12/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S14/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S17/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'S19/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T1/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T2/T3/', 1, 1, 16000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T5/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T8/T9/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T10/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T12/', 1, 0, 7000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T15/T16/', 0, 2, 18000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T18/', 0, 1, 9000);
+
+INSERT INTO GC_RESERVATION VALUES 
+(GC_RESERVATION_SEQ.NEXTVAL, 2, 1, '서울', '강남', '1관', '2D', TO_DATE('2016-02-22 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE('2016-02-22 14:04:00', 'YYYY-MM-DD HH24:MI:SS'), '히말라야', 'The Himalayas', '12', 'HM_poster.jpg', 124, 
+'admin', 'T19/T20/', 2, 0, 14000);
+
+
+
+COMMIT;

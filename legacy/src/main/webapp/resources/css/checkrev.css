@@ -1,0 +1,126 @@
+
+
+/* ºÓÀº »ö : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+¾ÆÀÌº¸¸® : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+Ã»³ì»ö : #017467;
+rgba(1, 116, 103, 0.5);
+
+±Ö»ö : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+°ËÀº»ö : #0B0D0C;
+rgba(11, 13, 12, 0.5); */
+
+@charset "utf-8";
+
+#checkrev {
+	background-color: #eee;
+	color : #333;
+	width: 100%;
+	margin: 0;
+	margin-top: 0px;
+	padding: 77px 0px 50px 0px;
+	text-align: center;
+	font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+}
+
+#checkrev .item {
+	width: 985px;
+    height: 300px;
+    background-color: #D6BA8A;
+    display: inline-block;
+    margin: 30px 0px;
+	
+}
+
+#checkrev .poster {
+	width: 187px;
+	height: 266px;
+    position: relative;
+    left: 20px;
+    top: 18px;
+    display: block;
+    z-index: 100;
+    cursor: pointer;
+}
+
+#checkrev .title {
+    background-color: #017467;
+    position: relative;
+    top: -266px;
+    height: 86px;
+    text-align: left;
+}
+
+#checkrev .age img {
+    width: 43px;
+}
+#checkrev .age {
+    display: inline-block;
+    position: relative;
+    top: 11px;
+    left: 230px;
+}
+
+#checkrev .name_k {
+    display: inline-block;
+    position: relative;
+    top: 19px;
+    left: 238px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+    width: 660px;
+}
+#checkrev .name_e {
+	display: inline-block;
+    font-size: 23px;
+    margin: 0px 10px;
+}
+
+#checkrev .ttype {
+	display: inline-block;
+    font-size: 34px;
+}
+
+#checkrev .content {
+	font-size: 26px;
+    color: #555;
+    z-index: 10;
+    display: block;
+    position: relative;
+    font-weight: bold;
+    top: -253px;
+    left: 251px;
+    width: 713px;
+    height: 187px;
+    text-align: left;
+}
+
+#checkrev .content-left {
+    padding: 20px 0px;
+    line-height: 1.9;
+    width: 356px;
+    display: inline-block;
+}
+
+#checkrev .content-right {
+    line-height: 1.7;
+    width: 357px;
+    height: 188px;
+    text-align: right;
+    float: right;
+}
+
+#checkrev .content-right .seat{
+	font-size: 30px;
+	color : #017467;
+}
+
+#checkrev .ticketlogo {
+	width: 315px;
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reservation">
+	
+	<!-- 영화 이름, 관람가 가져오기(전체) -->
+	<select id="selectMovieNameAgeAll" resultType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT MOVIE_ID, NAME_K, AGE FROM GC_MOVIE
+	</select>
+	
+	<!-- 영화 이름, 관람가 가져오기(도시 OR 지역 OR 날짜) -->
+	<select id="selectMovieNameAge" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT DISTINCT M.MOVIE_ID, M.NAME_K, M.AGE 
+		FROM
+			(SELECT * FROM GC_THEATER_SCHEDULE TS 
+			INNER JOIN GC_THEATER T 
+			ON TS.THEATER_ID = T.THEATER_ID) STS 
+		INNER JOIN GC_MOVIE M 
+		ON STS.MOVIE_ID = M.MOVIE_ID 
+		WHERE STS.CNAME = #{cname} OR STS.LNAME = #{lname} OR TO_CHAR(STS.MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate}
+	</select>
+	
+	<!-- 영화관 도시 가져오기(전체) -->
+	<select id="selectTheaterCnameAll" resultType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT DISTINCT CNAME, CORDER FROM GC_THEATER ORDER BY CORDER
+	</select>
+	
+	<!-- 영화관 도시 가져오기(영화 OR 날짜) -->
+	<select id="selectTheaterCname" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT DISTINCT T.CNAME, T.CORDER 
+		FROM GC_THEATER_SCHEDULE TS 
+		INNER JOIN GC_THEATER T
+		ON TS.THEATER_ID = T.THEATER_ID 
+		WHERE TS.MOVIE_ID = #{movie_id} OR TO_CHAR(TS.MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate}
+		ORDER BY T.CORDER
+	</select>
+	
+	<!-- 영화관 지역 가져오기(도시) -->
+	<select id="selectTheaterLnameAll" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT DISTINCT T.LNAME as lname, T.CORDER, T.CORDER2
+		FROM GC_THEATER_SCHEDULE TS 
+		INNER JOIN GC_THEATER T 
+		ON TS.THEATER_ID = T.THEATER_ID
+		WHERE T.CNAME = #{cname} 
+		ORDER BY T.LNAME
+	</select>
+	
+	<!-- 영화관 지역 가져오기(영화 AND 도시) -->
+	<select id="selectTheaterLname" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT DISTINCT T.LNAME, T.CORDER, T.CORDER2
+		FROM GC_THEATER_SCHEDULE TS 
+		INNER JOIN GC_THEATER T 
+		ON TS.THEATER_ID = T.THEATER_ID
+		WHERE TS.MOVIE_ID = #{movie_id} AND T.CNAME = #{cname} 
+		ORDER BY T.LNAME
+	</select>
+	
+	<!-- 날짜 가져오기(전체) -->
+	<select id="selectDateAll" resultType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT DISTINCT TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') MSTARTDATE FROM GC_THEATER_SCHEDULE ORDER BY MSTARTDATE
+	</select>
+	
+	<!-- 날짜 가져오기(영화 OR 도시 OR 지역) -->
+	<select id="selectDate" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT DISTINCT TO_CHAR(TS.MSTARTHOUR, 'YYYY-MM-DD') MSTARTDATE 
+		FROM GC_THEATER_SCHEDULE TS 
+		INNER JOIN GC_THEATER T 
+		ON TS.THEATER_ID = T.THEATER_ID 
+		WHERE TS.MOVIE_ID = #{movie_id} AND T.CNAME = #{cname} AND T.LNAME = #{lname} 
+		ORDER BY MSTARTDATE
+	</select>
+	
+	<!-- 시간 가져오기(영화 AND 도시 AND 지역 AND 날짜) -->
+	<select id="selectHour" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT T.TNAME, TO_CHAR(TS.MSTARTHOUR, 'HH24:MI') MSTARTHOUR, TO_CHAR(TS.MENDHOUR, 'HH24:MI') MENDHOUR, TS.THEATER_ID as THEATER_ID, TS.THEATER_SCHEDULE_ID as THEATER_SCHEDULE_ID
+		FROM GC_THEATER_SCHEDULE TS 
+		INNER JOIN GC_THEATER T 
+		ON TS.THEATER_ID = T.THEATER_ID 
+		WHERE TS.MOVIE_ID = #{movie_id} AND T.CNAME = #{cname} 
+		AND T.LNAME = #{lname} AND TO_CHAR(TS.MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate}
+	</select>
+	
+	<!-- 예약삽입 -->
+	<insert id="insertrev" parameterType="com.gaon.cinema.reservation.ReservationDTO">
+		INSERT INTO GC_RESERVATION VALUES (
+		GC_RESERVATION_SEQ.NEXTVAL, #{theater_schedule_id}, #{movie_id},#{cname}, #{lname}, #{tname}, 
+		#{ttype}, TO_DATE(#{s_mstarthour}, 'YYYY-MM-DD HH24:MI'), TO_DATE(#{s_mendhour}, 'YYYY-MM-DD HH24:MI'), #{name_k}, #{name_e}, #{age}, #{poster}, #{r_time}, 
+		#{userid}, #{seat}, #{children}, #{adult}, #{price} )
+	</insert>
+	
+	<!-- 예약가져오기 -->
+	<select id="selectrev" resultType="com.gaon.cinema.reservation.ReservationDTO"  parameterType="String">
+		SELECT * FROM GC_RESERVATION WHERE USERID = #{userid}
+	</select>
+	
+	<!-- 특정스케쥴의 예약좌석 가져오기 -->
+	<select id="seatRevCheck" resultType="com.gaon.cinema.reservation.ReservationDTO"  parameterType="String">
+		SELECT SEAT FROM GC_RESERVATION WHERE THEATER_SCHEDULE_ID = #{scheduleid}
+	</select>
+	
+	<select id="seatNum" resultType="com.gaon.cinema.reservation.ReservationDTO" parameterType="String">
+		SELECT SEATROWCOUNT, SEATCOLCOUNT, TTYPE FROM GC_THEATER WHERE THEATER_ID = #{THEATER_ID}	
+	</select>
+	
+</mapper>

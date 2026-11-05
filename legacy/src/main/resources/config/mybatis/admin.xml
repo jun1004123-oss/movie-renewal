@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+	
+	<!-- 영화 목록 -->
+	<select id="selectMovieAll" resultType="com.gaon.cinema.movie.MovieDTO">
+		SELECT * FROM GC_MOVIE ORDER BY MOVIE_ID
+	</select>
+	
+	<!-- 영화 추가 -->
+	<insert id="insertMovie" parameterType="com.gaon.cinema.movie.MovieDTO">
+		INSERT INTO GC_MOVIE VALUES (
+			GC_MOVIE_SEQ.NEXTVAL, #{NAME_K}, #{NAME_E}, #{AGE}, #{AGEtext}, 
+			#{D_DAY}, #{DIRECTOR}, #{ACTOR}, #{GENRE}, #{PAGE}, 
+			0, 0, #{CONTENT}, #{POSTER}, #{MOVIE}, 
+			#{STEEL1}, #{STEEL2}, #{STEEL3}, #{STEEL4}, #{STEEL5}, 
+			#{STEEL6}, #{STEEL7}, #{R_TIME}, #{STARTDATE}, #{ENDDATE}
+		)
+	</insert>
+	
+	<!-- 영화 수정 -->
+	<update id="updateMovie" parameterType="com.gaon.cinema.movie.MovieDTO">
+		
+	</update>
+	
+	<!-- 영화 삭제 -->
+	<delete id="deleteMovie" parameterType="int">
+		DELETE GC_MOVIE WHERE MOVIE_ID = #{movie_id}
+	</delete>
+	
+	<!-- 영화관 목록 -->
+	<select id="selectTheaterAll" resultType="com.gaon.cinema.theater.TheaterDTO">
+		SELECT * FROM GC_THEATER ORDER BY CNAME, LNAME, TNAME
+	</select>
+	
+	<!-- 영화관 최근 THEATER_ID -->
+	<select id="selectTheaterLastTheater_id" resultType="int">
+		SELECT MAX(THEATER_ID) THEATER_ID FROM GC_THEATER
+	</select>
+	
+	<!-- 영화관 추가 -->
+	<insert id="insertTheater" parameterType="com.gaon.cinema.theater.TheaterDTO">
+		INSERT INTO GC_THEATER VALUES (
+			GC_THEATER_SEQ.NEXTVAL, #{cname}, #{lname}, #{tname}, #{ttype}, 
+			#{seatcount}, #{mname}, #{mstarthour}, #{mendhour}, #{price}
+		)
+	</insert>
+	
+	<!-- 영화관 좌석 추가 -->
+	<insert id="insertTheaterSeat" parameterType="com.gaon.cinema.theaterSeat.TheaterSeatDTO">
+		INSERT INTO GC_THEATER_SEAT VALUES (
+			GC_THEATER_SEAT_SEQ.NEXTVAL, #{theater_id}, #{seat}, 'FALSE'
+		)
+	</insert>
+	
+	<!-- 영화관 수정 -->
+	<update id="updateTheater" parameterType="com.gaon.cinema.theater.TheaterDTO">
+		UPDATE GC_THEATER SET 
+	</update>
+	
+	<!-- 영화관 좌석 수정 -->
+	<update id="updateTheaterSeat" parameterType="com.gaon.cinema.theaterSeat.TheaterSeatDTO">
+		UPDATE GC_THEATER_SEAT SET 
+	</update>
+	
+	<!-- 영화관 삭제 -->
+	<delete id="deleteTheater" parameterType="int">
+		DELETE GC_THEATER WHERE THEATER_ID = #{theater_id}
+	</delete>
+	
+	<!-- 예약 목록 -->
+	<select id="selectReservationAll" resultType="com.gaon.cinema.reservation.ReservationDTO" >
+		SELECT * FROM GC_RESERVATION
+	</select>
+	
+	<!-- 회원 목록 -->
+	<select id="selectMemberAll" resultType="com.gaon.cinema.member.MemberDTO">
+		SELECT * FROM GC_MEMBER
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

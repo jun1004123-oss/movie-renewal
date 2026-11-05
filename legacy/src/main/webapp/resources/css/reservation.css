@@ -1,0 +1,284 @@
+/* 
+
+붉은 색 : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+아이보리 : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+청녹색 : #017467; -> #005E57
+rgba(1, 116, 103, 0.5);
+
+귤색 : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+검은색 : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+letter-spacing: 5px;
+line-height: 1.2;
+
+*/
+
+/* reservation 메인 */
+#reservation {
+	/* margin: 580px 0 150px; */
+	margin: 80px 0 0px;
+    width: 100%;
+    height: auto;
+	text-align: center;
+}
+
+#reservation > .steps {
+	display: inline-block;
+	width: 900px; height: 700px;
+}
+
+#reservation > .steps > .step1 {
+	width: 100%;
+	display: inline-flex;
+}
+
+#reservation > .steps > .step1 a {
+	display: block;
+	color: #333333;
+}
+
+#reservation > .steps > .step1 a:hover {
+	background-color: #333333;
+	color: #DDD;
+}
+
+#reservation > .steps > .step1 a.selected {
+	background-color: #333333;
+	color: #DDD;
+}
+
+#reservation > .steps > .step1 ul {
+	margin: 0;
+	padding: 0;
+}
+
+#reservation > .steps > .step1 li {
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	vertical-align: middle;
+	list-style: none;
+}
+
+#reservation > .steps > .step1 .head {
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle;
+	background-color: #333333;
+	color: #DDD;
+}
+
+#reservation > .steps > .step1 .body {
+	width: 100%; height: 650px;
+	background-color: #DDD;
+}
+
+/* 영화 */
+#reservation > .steps > .step1 > .section_movie {
+	display: inline-block;
+	width: 30%; height: 100%;
+	border-width: 0px 1px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#reservation > .steps > .step1 > .section_movie .movie_wrap {
+	width: 90%; height: 90%;
+	top: 5%;
+	position: relative;
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_movie .movie_head {
+	width: 100%; height: 5%;
+	text-align: left;
+}
+
+#reservation > .steps > .step1 > .section_movie .movie_head li {
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_movie .movie_body {
+	width: 100%; height: 95%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#reservation > .steps > .step1 > .section_movie .movie_list {
+	width: 100%; height: 100%;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+/* 영화관 */
+#reservation > .steps > .step1 > .section_theater {
+	display: inline-block;
+	width: 30%; height: 100%;
+	border-width: 0px 1px;
+	border-style: solid;
+	border-color: #CCC;
+	float: left;
+}
+
+#reservation > .steps > .step1 > .section_theater .theater_wrap {
+	width: 90%; height: 90%;
+	top: 5%;
+	position: relative;
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_theater .theater_head {
+	width: 100%; height: 5%;
+	text-align: left;
+}
+
+#reservation > .steps > .step1 > .section_theater .theater_head li {
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_theater .theater_body {
+	width: 100%; height: 95%;
+	display: inline-flex;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#reservation > .steps > .step1 > .section_theater .theater_city_list {
+	width: 50%; height: 100%;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+#reservation > .steps > .step1 > .section_theater .theater_city_list a {
+	/* background-color: #777777;
+	color: #DDD; */
+}
+
+#reservation > .steps > .step1 > .section_theater .theater_city_list a:hover {
+	background-color: #333333;
+	color: #DDD;
+}
+
+#reservation > .steps > .step1 > .section_theater .theater_location_list {
+	width: 50%; height: 100%;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+/* 날짜 */
+#reservation > .steps > .step1 > .section_date {
+	display: inline-block;
+	width: 10%; height: 100%;
+	border-width: 0px 1px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#reservation > .steps > .step1 > .section_date .date_wrap {
+	width: 90%; height: 90%;
+	top: 5%;
+	position: relative;
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_date .date_head {
+	width: 100%; height: 5%;
+	text-align: left;
+}
+
+#reservation > .steps > .step1 > .section_date .date_head li {
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_date .date_body {
+	width: 100%; height: 95%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#reservation > .steps > .step1 > .section_date .date_list {
+	width: 100%; height: 100%;
+}
+
+/* 시간 */
+#reservation > .steps > .step1 > .section_hour {
+	display: inline-block;
+	width: 30%; height: 100%;
+	border-width: 0px 1px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_wrap {
+	width: 90%; height: 90%;
+	top: 5%;
+	position: relative;
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_head {
+	width: 100%; height: 5%;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_body {
+	width: 100%; height: 95%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_body ul {
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_body li {
+	width: 33.333%;
+	display: inline-block;
+	float: left;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_body ul {
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_body li {
+	width: 33.333%;
+	display: inline-block;
+	float: left;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_list {
+	width: 100%; height: 100%;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour {
+	width: 100%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#reservation .movie_list img {
+    width: 25px;
+    height: 25px;
+    margin: 5px 5px 5px 0px;
+}
+
+
+
+
+
+
+

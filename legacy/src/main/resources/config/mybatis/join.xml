@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="join">
+	<insert id="add" parameterType="com.gaon.cinema.join.JoinDTO">
+		insert into GC_MEMBER values(GC_MEMBER_SEQ.nextval,
+		#{userid}, #{userpw}, #{img_file}, #{name}, #{gender}, #{birth}, #{telnum},
+		#{email}, #{zipcode}, #{address1}, #{address2},2000, 'empty', 'empty')
+	</insert>
+	
+	<select id="search" resultType="int" parameterType="String">
+		select count(*) cnt from GC_member where userid = #{id}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

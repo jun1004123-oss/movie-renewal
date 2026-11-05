@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	
+	<select id="member" parameterType="com.gaon.cinema.member.MemberDTO" 
+	resultType="com.gaon.cinema.member.MemberDTO">
+		select * from gc_member where userid=#{userid}
+	</select>
+	
+	<update id="potinSub" parameterType="com.gaon.cinema.member.MemberDTO">
+		update gc_member set point= point - #{point} where userid = #{userid}
+	</update>
+	
+	<select id="searchidCount" parameterType="com.gaon.cinema.member.MemberDTO" 
+	resultType="int">
+		select count(*) cnt from gc_member where name = #{name} and email = #{email}
+	</select>
+
+	<select id="searchpwCount" parameterType="String" 
+	resultType="com.gaon.cinema.member.MemberDTO">
+		select * from gc_member where userid=#{userid}
+	</select>
+
+	<select id="idSelect" parameterType="com.gaon.cinema.member.MemberDTO" 
+	resultType="com.gaon.cinema.member.MemberDTO">
+		select userid from gc_member where name = #{name} and email = #{email}
+	</select>
+
+	<select id="pwSelect" parameterType="com.gaon.cinema.member.MemberDTO" 
+	resultType="com.gaon.cinema.member.MemberDTO">
+		select userpw from gc_member where name = #{name} and email = #{email} and userid=#{userid}
+	</select>
+
+	<delete id="delete" parameterType="com.gaon.cinema.member.MemberDTO">
+		delete from gc_member where userid = #{userid}
+	</delete>
+	
+	<update id="edit" parameterType="com.gaon.cinema.member.MemberDTO">
+		update gc_member set userpw=#{userpw}, img_file=#{img_file},name=#{name},
+		gender=#{gender}, birth=#{birth} , telnum=#{telnum}, email=#{email},
+		zipcode=#{zipcode}, address1=#{address1}, address2=#{address2} 
+		where userid=#{userid} 
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

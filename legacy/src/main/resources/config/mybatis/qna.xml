@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="qna">
+	<!-- 검색된 게시글 리스트 출력 -->
+	<select id="selectAll" parameterType="com.gaon.cinema.qna.QnaDTO" resultType="com.gaon.cinema.qna.QnaDTO">
+		select * from
+				(select rownum rn, a.* from
+						(select * from gc_qna where ${skey} like '%'||#{sval}||'%' order by qna_id desc) a)
+						where rn between #{start} and #{end}
+	</select>		
+	
+	<!-- 선택한 게시글 출력 -->
+	<select id="detail" parameterType="int" resultType="com.gaon.cinema.qna.QnaDTO">
+	 select * from gc_qna where qna_id = #{qna_id}
+	</select>
+	
+	<!-- 모든 페이지 카운터  -->
+	<select id="countAll" resultType="int">
+		select count (*) cnt from gc_qna
+	</select>
+	
+	<!-- 검색 페이지 카운터 -->
+	<select id="countSearch" parameterType="com.gaon.cinema.qna.QnaDTO" resultType="int">
+		select count(*) cnt from gc_qna where ${skey} like '%'||#{sval}||'%'
+	</select>
+	
+	<!-- 데이터 추가 -->
+	<insert id="add" parameterType="com.gaon.cinema.qna.QnaDTO">
+		insert into gc_qna values(gc_seq.nextval,
+		 #{qna_id}, #{userid}, #{title}, #{contents}, #{wdate}, #{count})
+	</insert>
+	
+	<!-- 선택한 게시글을 누를 경우 조회수 1 증가 -->
+	<update id="addCount" parameterType="int">
+		update gc_qna set count = count + 1 where qna_id = #{qna_id}
+	</update>
+	
+	<!-- 선택한 게시글 수정  -->
+	<update id="edit" parameterType="com.gaon.cinema.qna.QnaDTO">
+		update gc_qna set title = #{title}, contents = #{contents}, wdate = sysdate 
+		where qna_id = #{qna_id}
+	</update>
+	
+	<!-- 게시글 작성 -->
+	<insert id="insert" parameterType="com.gaon.cinema.qna.QnaDTO">
+		insert into gc_qna values (gc_qna_seq.nextval, #{userid}, #{title}, #{contents}, sysdate, 0)
+	</insert>
+	
+	<!-- 선택한 데이터 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from gc_qna where qna_id = #{qna_id}
+	</delete>
+</mapper>

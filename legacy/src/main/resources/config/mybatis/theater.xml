@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="theater">
+	
+	<!-- 도시 이름 가져오기 -->
+	<select id="selectCname" resultType="com.gaon.cinema.theater.TheaterDTO">
+		SELECT DISTINCT CNAME, CORDER FROM GC_THEATER ORDER BY CORDER
+		<!-- SELECT CNAME, LNAME, TNAME,TTYPE, SEATCOUNT, CORDER FROM GC_THEATER ORDER BY CORDER -->
+	</select>
+	
+	<!-- 지역 이름 가져오기 -->
+	<select id="selectLname" resultType="com.gaon.cinema.theater.TheaterDTO" parameterType="String">
+		SELECT DISTINCT LNAME FROM GC_THEATER WHERE CNAME = #{cname} ORDER BY LNAME
+	</select>
+	
+	<!-- 전체 영화관 소개 가져오기 -->
+	<select id="selectIntroAll">
+		SELECT DISTINCT LNAME, TIMG, CORDER FROM GC_THEATER ORDER BY CORDER, LNAME
+	</select>
+	
+	<!-- 도시 영화관 소개 가져오기 -->
+	<select id="selectIntroByCname" resultType="com.gaon.cinema.theater.TheaterDTO" parameterType="String">
+		SELECT CNAME, LNAME, TNAME,TTYPE, SEATCOUNT FROM GC_THEATER WHERE CNAME = #{cname} ORDER BY LNAME
+	</select>
+	
+	<!-- 지역 영화관 소개 가져오기 -->
+	<select id="selectIntroByLname" resultType="com.gaon.cinema.theater.TheaterDTO" parameterType="String">
+		SELECT CNAME, LNAME, TNAME,TTYPE, SEATCOUNT FROM GC_THEATER WHERE LNAME = #{lname} ORDER BY LNAME
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

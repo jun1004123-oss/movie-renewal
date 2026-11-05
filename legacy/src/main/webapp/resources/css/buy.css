@@ -1,0 +1,135 @@
+
+
+/* ºÓÀº »ö : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+¾ÆÀÌº¸¸® : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+Ã»³ì»ö : #017467;
+rgba(1, 116, 103, 0.5);
+
+±Ö»ö : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+°ËÀº»ö : #0B0D0C;
+rgba(11, 13, 12, 0.5); */
+
+@charset "utf-8";
+
+#buy {
+    margin: 550px auto 0px;
+    width: 70%;
+    height: auto;
+     font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+}
+
+#buy input[type="button"] {
+    padding: 8px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 2px solid #017467;
+    color: #017467;
+    float: right;
+}
+
+
+
+#buy input[type="submit"]  {
+    padding: 2px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #ccc;
+    border: 2px solid #ccc;
+    color: #333;
+}
+
+#buy input[type="button"]:hover  {
+	color: #fff;
+	 background-color: #017467;
+}
+	
+#buy input[type="submit"]:hover {
+	color: #333;
+	border-color: #aaa;
+	 background-color: #aaa;
+}
+
+#buy input[type="text"] {
+    border: 2px solid #bbb;
+    height: 28px;
+    color: #444;
+    padding: 1px 10px;
+}
+
+input::-webkit-input-placeholder {
+    color : transparent;
+}
+
+#buy textarea {
+    margin: 9px 0px;
+    border: 2px solid #bbb;
+    outline: none;
+    padding: 9px;
+}
+
+#buy hr {
+    border-top: 2px solid #888;
+}
+
+#buy .title {
+    border-bottom: 3px solid #017467;
+    font-size: 19px;
+    padding: 6px;
+    font-weight: bold;
+}
+
+#buy .buyimg{
+	width: 250px;
+    height: 250px;
+    margin: 10px;
+    display: inline-block;
+}
+
+#buy img[id*='img'] {
+	width: 250px;
+    height: 250px;
+    margin: 10px;
+    display: inline-block;
+}
+#buy .buycontent {
+    display: inline-flex;
+}
+
+#buy .buycontent dl{
+	display: inline-block;
+	padding-top: 30px;
+}
+
+#buy .buycontent dt.blind_txt {
+    font-size: 18px;
+}
+
+#buy dd.item_name {
+    font-size: 35px;
+    font-weight: bold;
+     font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+}
+
+#buy dd.price_sale {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+}
+
+#buy dd.content {
+    font-size: 19px;
+    font-weight: bold;
+    font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+}
+
+.sender dt, .receiver dt {
+    font-weight: bold;
+    padding: 5px 13px;
+}

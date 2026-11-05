@@ -1,0 +1,207 @@
+/* 
+
+붉은 색 : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+아이보리 : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+청녹색 : #017467;
+rgba(1, 116, 103, 0.5);
+
+귤색 : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+검은색 : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+*/
+
+/* adminMemberList.jsp 부분 */
+#adminMemberList {
+	text-align: center;
+}
+
+#adminMemberList > table {
+	display: inline-block;
+}
+
+/* adminReservationList.jsp 부분 */
+#adminReservationList {
+	text-aling: center;
+}
+
+/* adminMovieTheaterList.jsp 부분 */
+#adminMovieTheaterList {
+	text-align: center;
+}
+
+#adminMovieTheaterList > table {
+	display: inline-block;
+}
+
+#adminMovieTheaterList .movieListButton, #adminMovieTheaterList .theaterListButton {
+	padding: 9px 17px;
+	font-size: 19px;
+	font-family: inherit;
+	font-size: 17px;
+	font-weight: bold;
+	background-color: transparent;
+	line-height: inherit;
+	border-style: solid;
+	border-color: #017467;
+	border-width: 3px;
+	margin: 0 -3px 17px;
+	color : #017467;
+	outline: none;
+}
+
+#adminMovieTheaterList .movieListButton:hover, #adminMovieTheaterList .theaterListButton:hover {
+	background-color: #017467;
+	color : #fff;
+}
+
+#adminMovieTheaterList .selected {
+	background-color: #017467;
+	color : #fff;
+}
+
+/* adminMovieInsert.jsp 부분 */
+#adminMovieInsert {
+	/* text-align: center; */
+}
+
+#adminMovieInsert > form {
+	/* display: inline-block; */
+}
+
+/* adminTheaterInsert.jsp 부분 */
+#adminTheaterInsert {
+	text-align: center;
+}
+
+#adminTheaterInsert > form {
+	text-align: center;
+	display: inline-block;
+}
+
+#adminTheaterInsert > form > table {
+	display: inline-block;
+}
+
+/* adminMovieEdit.jsp 부분 */
+#adminMovieEdit {
+	/* text-align: center; */
+}
+
+#adminMovieEdit > form {
+	/* display: inline-block; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 아래쪽은 참고용 */
+#adminMovieTheaterList .main_menu {
+	width: 800px; height: 77px;
+	background-color: red;
+	text-align: center;
+	display: inline-block;
+}
+
+#adminMovieTheaterList .main_menu > ul {
+	margin: 0; padding: 0;
+}
+
+#adminMovieTheaterList .main_menu > ul > li {
+	text-align: center;
+	display: inline-flex;
+}
+
+#adminMovieTheaterList .main_menu > ul > li > a {
+	text-decoration: none;
+	cursor: pointer;
+	color : #D6BA8A;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 23px 23px;
+	border-bottom: solid;
+	border-top: solid;
+	border-color: #017467;
+	transition : all 0.3s;
+}
+
+#adminMovieTheaterList .main_menu > ul > li > a:hover {
+	background-color: #005E57;
+	border-bottom: solid;
+	border-top: solid;
+	border-color: #E08F23;
+}
+
+#adminMovieTheaterList .sub_menu {
+	width: 800px; height: 77px;
+	background-color: green;
+	text-align: center;
+	display: inline-block;
+}
+
+#adminMovieTheaterList .sub_menu > ul {
+	margin: 0; padding: 0;
+}
+
+#adminMovieTheaterList .sub_menu > ul > li {
+	display: inline-flex;
+}
+
+#adminMovieTheaterList .sub_menu > ul > li > a {
+	text-decoration: none;
+	cursor: pointer;
+	color : #D6BA8A;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 23px 23px;
+	border-bottom: solid;
+	border-top: solid;
+	border-color: #017467;
+	transition : all 0.3s;
+}
+
+#adminMovieTheaterList .sub_menu > ul > li > a:hover {
+	background-color: #005E57;
+	border-bottom: solid;
+	border-top: solid;
+	border-color: #E08F23;
+}
+
+#adminMovieTheaterList .list {
+	width: 800px;
+	display: inline-block;
+	background-color: blue;
+}
+
+[id*="admin"] input[type="button"],[id*="admin"] input[type="submit"]  {
+    padding: 4px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 3px solid #017467;
+   	color: #017467;
+}
+
+[id=*"admin"] input[type="button"]:hover,[id*="admin"] input[type="submit"]:hover  {
+	color: #fff;
+	 background-color: #017467;
+}
